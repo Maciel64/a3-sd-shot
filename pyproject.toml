@@ -1,0 +1,3 @@
+[tool.taskipy.tasks]
+dev = "uvicorn app.main:app --reload"
+freeze = "pip freeze > requirements.txt"
