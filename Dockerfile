@@ -27,9 +27,10 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 
 # evita crash de memória durante build pesado
+# CMAKE_BUILD_PARALLEL_LEVEL=1 e MAX_JOBS=1 reduzem o uso de memória limitando a compilação do dlib/insightface para 1 thread
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir numpy==1.26.4 && \
-    pip install --no-cache-dir -r requirements.txt
+    CMAKE_BUILD_PARALLEL_LEVEL=1 MAX_JOBS=1 pip install --no-cache-dir -r requirements.txt
 
 # =========================
 # APP
