@@ -2,8 +2,8 @@ import numpy as np
 from insightface.app import FaceAnalysis
 import cv2
 
-app = FaceAnalysis(name="buffalo_l")
-app.prepare(ctx_id=0)
+app = FaceAnalysis(name="buffalo_s")
+app.prepare(ctx_id=-1)
 
 class FaceService: 
   async def generate_embedding(self, image_bytes: bytes):
