@@ -5,11 +5,10 @@ from numpy import array as np
 app = FastAPI()
 
 @app.post("/embeed")
-async def embeed(file: UploadFile):
-
+async def embeed(photo: UploadFile):
     service = FaceService()
 
-    contents = await file.read() 
+    contents = await photo.read() 
 
     embeedings = await service.generate_embedding(contents)
 
